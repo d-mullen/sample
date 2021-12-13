@@ -92,7 +92,14 @@ func main() {
 
 	log.Printf("Found Collection %s", col.Path)
 
-	// Query the collection.
+	/*
+		start1 := time.Now()
+		_, _ = col.Select("id").OrderBy("createdAt", firestore.Desc).Documents(ctx).GetAll()
+		end1 := time.Now()
+		secs1 := end1.Sub(start1).Seconds()
+		fmt.Printf("Get All documents in %v seconds.\n", secs1)
+	*/
+
 	start := time.Now()
 	q := col.Select("id").OrderBy("createdAt", firestore.Desc)
 
